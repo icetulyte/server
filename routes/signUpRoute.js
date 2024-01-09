@@ -13,7 +13,7 @@ export const signUpRoute = {
 
         const user = await db.collection('users').findOne({ email });
         if (user) {
-            res.sendStatus(409);
+            return res.sendStatus(409);
         }
 
         const passwordHash = await bcrypt.hash(password, 10);
